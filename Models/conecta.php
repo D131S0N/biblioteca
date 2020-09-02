@@ -3,7 +3,8 @@
 function conecta() {
     try {
 
-        $db = new PDO('mysql:host=localhost;dbname=biblioteca;charset=utf8', 'root', '');
+        // $db = new PDO('mysql:host=localhost;dbname=biblioteca;charset=utf8', 'root', '');
+        $db = new PDO('mysql:host=localhost;port=3310;dbname=biblioteca;charset=utf8', 'root', 'des');
     
         return $db;
     } catch (PDOException $e) {

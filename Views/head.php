@@ -43,6 +43,10 @@
                     <li class="nav-item">
                         <a class="nav-link" href="cadastroAlugaLivro.php">Alugar Livro</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Controllers/testeController.php">Somente teste</a>
+                    </li>
 <!-- 
                     <li class="nav-item">
                         <a class="nav-link" href="#">Olá, Renato</a>
