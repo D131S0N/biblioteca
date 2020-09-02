@@ -1,4 +1,5 @@
 <?php
+die('chegou aqui');
 include 'conecta.php';
 
 session_start();

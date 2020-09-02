@@ -1,3 +1,6 @@
 <?php
+include 'head.php';
 
-echo 'hello world';
+include 'footer.php';
+
+?>
