@@ -13,6 +13,8 @@
     <link href="css/estilo.css" rel="stylesheet" />
     <link rel="icon" href="img/favicon.jpg" />
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
 
     <title>Home</title>
 </head>

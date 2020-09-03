@@ -8,7 +8,7 @@
         <div class="card-header bg-dark text-white text-center">Cadastro de pessoa</div>
 
         <div class="card-body">
-            <form action="../Controllers/checkPost.php" method="post" class="cadastro-pessoa">
+            <form action="../Controllers/testeController.php" method="post" class="cadastro-pessoa">
                 <div class="form-group row">
                     <label for="nome" class="col-md-2 col-form-label text-md-center">Nome</label>
                     <div class="col-md-10">

@@ -1,7 +1,11 @@
 <?php
 include 'head.php';
 ?>
-
+<script>
+$(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
+</script>
 <div class="container margin-top-50">
     <div class="card">
         <div class="card-header bg-dark text-white text-center">Cadastro de aluguel de livro</div>
@@ -36,19 +40,39 @@ include 'head.php';
                 </div>
                
                 <div class="form-group row">
+                    <label for="pessoa" class="col-md-2 col-form-label text-md-center">Pessoa</label>
+                    <div class="col-md-10">
+                    <select class="form-control js-example-basic-single" name="state">
+                        <option value="AL">Alabama</option>
+                        <option value="AL">Alabam</option>
+                        <option value="AL">Alabam</option>
+                        <option value="AL">Alabam</option>
+                        <option value="AL">Alabam</option>
+                        <option value="AL">Alabam</option>
+                        <option value="AL">Alabam</option>
+                        <option value="AL">Alabam</option>
+                        <option value="AL">Alabam</option>
+                        <option value="AL">Alabam</option>
+                        <option value="AL">Alabam</option>
+                        <option value="WY">Wyoming</option>
+                    </select>
+                    </div>
+                </div>
+
+                <div class="form-group row">
                     <div class="col-sm-2 text-md-center">Em aberto</div>
                     <div class="col-sm-10">
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" id="emAberto">
                             <label class="form-check-label" for="emAberto">
-                                O livrvo ainda está alugado?
+                                O livro ainda está alugado?
                             </label>
                         </div>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-outline-primary direita">Cadastrar livro</button>
+                        <button type="submit" class="btn btn-outline-primary direita">Alugar livro</button>
                     </div>
                 </div>
             </form>
