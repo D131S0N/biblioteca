@@ -46,14 +46,20 @@
                         <a class="nav-link" href="cadastroAlugaLivro.php">Alugar Livro</a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="nav-link" href="../Controllers/testeController.php">Somente teste</a>
-                    </li>
-<!-- 
+                    <!-- 
                     <li class="nav-item">
                         <a class="nav-link" href="#">Olá, Renato</a>
                     </li> -->
                 </ul>
+                <form class="form-inline my-4 my-lg-0" action="search.php" method="post">
+                    <select class="form-control" name="campo">
+                        <option value="livro">Livro</option>
+                        <option value="autor">Autor</option>
+                        <option value="isbn">ISBN</option>
+                    </select>
+                    <input class="form-control mr-sm-4" name="busca" type="search" placeholder="Pesquisar Livro" aria-label="Pesquisar">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
+                </form>
             </div>
         </div>
     </nav>

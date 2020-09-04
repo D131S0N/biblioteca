@@ -1,8 +1,8 @@
 <?php
 include '../Models/salvar.php';
 
-echo '<pre>';
-print_r($_POST);
+// echo '<pre>';
+// print_r($_POST);
 
 if (isset($_POST) && !empty($_POST) && isset($_POST['acao']) && !empty($_POST['acao'])) {
     switch ($_POST['acao']) {
@@ -23,6 +23,16 @@ if (isset($_POST) && !empty($_POST) && isset($_POST['acao']) && !empty($_POST['a
                 header("Location: ../Views/listaLivros.php?next=error");
             }
             break;
+
+        case 'aluga-livro':
+            $result = salvarAlugaLivro($_POST);
+            if ($result) {
+                header("Location: ../Views/listaLivros.php?next=ok&action=livro");
+            } else {
+                header("Location: ../Views/listaLivros.php?next=error");
+            }
+        break;
+        
         default:
             header("Location: ../Views/page404.php");
             break;

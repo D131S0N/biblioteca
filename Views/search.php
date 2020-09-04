@@ -1,33 +1,41 @@
 <?php
-include 'head.php';
 include '../Controllers/getData.php';
+include 'head.php';
 
-$livros = buscaLivros("SELECT * FROM livros;");
+if (!empty($_POST) && !empty($_POST['busca']) && !empty($_POST['campo'])) {
+    switch ($_POST['campo']) {
+        case 'livro':
+            $campo = 'titulo';
+            break;
 
-if (isset($_GET['next']) && $_GET['next'] == 'ok') {
-?>
-    <div class="container">
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            Cadastro realizado com sucesso!
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    </div>
-<?php
-} elseif (isset($_GET['next']) && $_GET['next'] == 'error') {
-?>
-    <div class="container">
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            Infelizmente ocorreu um erro ao realizar o cadastro!
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-    </div>
-<?php
+        case 'autor':
+            $campo = 'autor';
+            break;
+
+        case 'isbn':
+            $campo = 'isbn';
+            break;
+
+        default:
+            $campo = 'titulo';
+            break;
+    }
+    $busca = addslashes($_POST['busca']);
+    $sqlBusca = "SELECT * FROM livros WHERE {$campo} LIKE '%{$busca}%'";
+
+    $livros = busca($sqlBusca);
+
 }
+
 ?>
+<div class="container margin-top-50">
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+        Resultado da busca!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+</div>
 <div class="container margin-top-50">
     <table class="table table-hover">
         <thead class="thead-dark">
@@ -50,7 +58,6 @@ if (isset($_GET['next']) && $_GET['next'] == 'ok') {
                         <td><?php echo $livro['editora'] ?></td>
                         <td><?php echo $livro['idioma'] ?></td>
                         <td><?php echo $livro['autor'] ?></td>
-                        <td><a type="button" class="btn btn-info" href="cadastroLivro.php?id=<?php echo $livro['id'] ?>"> Editar</a></td>
                     </tr>
 
 
