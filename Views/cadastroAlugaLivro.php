@@ -1,12 +1,7 @@
 <?php
 include 'head.php';
 ?>
-<script>
-$(document).ready(function() {
-    $('.js-example-basic-single').select2();
-});
 
-</script>
 <div class="container margin-top-50">
     <div class="card">
         <div class="card-header bg-dark text-white text-center">Cadastro de aluguel de livro</div>

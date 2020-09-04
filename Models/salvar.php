@@ -99,21 +99,23 @@ function salvarAlugaLivro($dados)
     if (isset($dados['acao'])) {
         unset($dados['acao']);
     }
-    // print_r($dados);die;
+    // echo '<pre>';print_r($dados);die;
+    session_start();
+    $funcionario = !empty($_SESSION['user_name']) ? $_SESSION['user_name'] : '';
     $nome = !empty($dados['nome']) ? $dados['nome'] : '';
-    $email = !empty($dados['email']) ? $dados['email'] : '';
-    $retirada = !empty($dados['retirada']) ? $dados['retirada'] : '';
-    $entrega = !empty($dados['entrega']) ? $dados['entrega'] : '';
+    $livro = !empty($dados['livro']) ? $dados['livro'] : '';
+    $retirada = !empty($dados['retirada']) ? date('Y-m-d H:i:s', strtotime($dados['retirada'])) : '';
+    $entrega = !empty($dados['entrega']) ? date('Y-m-d H:i:s', strtotime($dados['entrega'])) : '';
     $emAberto = (!empty($dados['emAberto']) && $dados['ativo'] == 'on') ? 1 : 0;
 
-    $inserir = $db->prepare("INSERT INTO livros_alugados(id_livro, id_pessoa, id_funcionario, data_retirada, data_devolucao, em_aberto) VALUES (:id_livro, :id_pessoa, :id_funcionario, :data_retirada, :data_devolucao, :em_aberto)");
+    $inserir = $db->prepare("INSERT INTO livros_alugados(livro, pessoa, funcionario, data_retirada, data_devolucao, em_aberto) VALUES (?, ?, ?, ?, ?, ?)");
 
-    $inserir->bindValue(':id_livro', 1, PDO::PARAM_INT);
-    $inserir->bindValue(':id_pessoa', 1, PDO::PARAM_INT);
-    $inserir->bindValue(':id_funcionario', 1, PDO::PARAM_INT);
-    $inserir->bindValue(':data_retirada', $retirada);
-    $inserir->bindValue(':data_devolucao', $entrega);
-    $inserir->bindValue(':em_aberto', $emAberto, PDO::PARAM_INT);
+    $inserir->bindValue(1, $livro);
+    $inserir->bindValue(2, $nome);
+    $inserir->bindValue(3, $funcionario);
+    $inserir->bindValue(4, $retirada);
+    $inserir->bindValue(5, $entrega);
+    $inserir->bindValue(6, $emAberto, PDO::PARAM_INT);
 
     try {
         if ($inserir->execute() === false) {

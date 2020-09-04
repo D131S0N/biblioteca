@@ -84,7 +84,8 @@ include 'head.php';
                     <div class="col-sm-2 text-md-center">Ativo</div>
                     <div class="col-sm-10">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" name="ativo" id="ativo" checked="<?php !empty($livro['ativo']) && $livro['ativo'] == 1 ? print('checked') : ''?>">
+                            <input class="form-check-input" type="checkbox" name="ativo" id="ativo"
+                            <?php !empty($livro['ativo']) && $livro['ativo'] == 1 ? print('checked="checked"') : '' ?>>
                             <label class="form-check-label" for="ativo">
                                 O livro está ativo?
                             </label>
