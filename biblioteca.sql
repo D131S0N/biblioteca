@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 04-Set-2020 às 04:17
+-- Tempo de geração: 05-Set-2020 às 14:32
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.4.8
 
@@ -30,6 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `funcionario` (
   `id` int(11) NOT NULL,
   `nome` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `senha` varchar(255) DEFAULT NULL,
   `data_cadastro` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -37,10 +39,9 @@ CREATE TABLE `funcionario` (
 -- Extraindo dados da tabela `funcionario`
 --
 
-INSERT INTO `funcionario` (`id`, `nome`, `data_cadastro`) VALUES
-(1, 'Dieison', '2020-08-31 20:36:29'),
-(2, '2020-09-01 02:17:08', '2020-09-01 02:17:08'),
-(3, '2020-09-01 02:21:07', '2020-09-01 02:21:07');
+INSERT INTO `funcionario` (`id`, `nome`, `email`, `senha`, `data_cadastro`) VALUES
+(4, 'Dieison', 'dieison@email.com', '39c44f09c8863e03c765b62a318dd338871af0dd', '2020-09-01 09:29:36'),
+(5, 'Silvana', 'tutora@email.com', '6ecb14b6e91a27cdf9d04aa72a4311103c6e60e8', '2020-09-01 09:29:56');
 
 -- --------------------------------------------------------
 
@@ -81,20 +82,13 @@ INSERT INTO `livros` (`id`, `titulo`, `isbn13`, `editora`, `tipo_encadernacao`, 
 
 CREATE TABLE `livros_alugados` (
   `id` int(11) NOT NULL,
-  `id_livro` int(11) DEFAULT NULL,
-  `id_pessoa` int(11) DEFAULT NULL,
-  `id_funcionario` int(11) DEFAULT NULL,
+  `livro` varchar(255) DEFAULT NULL,
+  `pessoa` varchar(255) DEFAULT NULL,
+  `funcionario` varchar(255) DEFAULT NULL,
   `data_retirada` datetime DEFAULT NULL,
   `data_devolucao` datetime DEFAULT NULL,
   `em_aberto` tinyint(4) DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `livros_alugados`
---
-
-INSERT INTO `livros_alugados` (`id`, `id_livro`, `id_pessoa`, `id_funcionario`, `data_retirada`, `data_devolucao`, `em_aberto`) VALUES
-(1, 1, 1, 1, '2020-09-03 00:00:00', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -112,13 +106,6 @@ CREATE TABLE `pessoa` (
   `cidade` varchar(255) DEFAULT NULL,
   `data_cadastro` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `pessoa`
---
-
-INSERT INTO `pessoa` (`id`, `nome`, `email`, `documento`, `idade`, `senha`, `cidade`, `data_cadastro`) VALUES
-(1, 'Teste1', 'email@teste.com', '404.081.050-38', 25, '7c222fb2927d828af22f592134e8932480637c0d', 'teste', '2020-09-04 00:01:14');
 
 --
 -- Índices para tabelas despejadas
@@ -159,7 +146,7 @@ ALTER TABLE `pessoa`
 -- AUTO_INCREMENT de tabela `funcionario`
 --
 ALTER TABLE `funcionario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `livros`
@@ -171,7 +158,7 @@ ALTER TABLE `livros`
 -- AUTO_INCREMENT de tabela `livros_alugados`
 --
 ALTER TABLE `livros_alugados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `pessoa`
