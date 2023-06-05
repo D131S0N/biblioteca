@@ -1,5 +1,5 @@
 # biblioteca
-Tarefa final da disciplina de back-end
+Tarefa final da disciplina de back-end, para a graduaçãode Sistemas para Internet - Unisinos.
 
 ### Configuração
 
